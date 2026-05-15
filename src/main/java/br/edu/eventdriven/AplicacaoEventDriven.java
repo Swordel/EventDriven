@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EventDrivenApplication {
+public class AplicacaoEventDriven {
 
     public static void main(String[] args) {
-        SpringApplication.run(EventDrivenApplication.class, args);
+        SpringApplication.run(AplicacaoEventDriven.class, args);
     }
 }
