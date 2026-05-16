@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.eventdriven.configuracao.ConfiguracaoRabbitMQ;
 
 @RestController
-@RequestMapping({"/pedidos", "/orders"})
+@RequestMapping({"/pedidos"})
 public class ControladorPedido {
 
     private final RabbitTemplate templateRabbit;

@@ -16,10 +16,10 @@ import org.springframework.context.annotation.Configuration;
 @SuppressWarnings({"unused", "null"})
 public class ConfiguracaoRabbitMQ {
 
-    public static final String EXCHANGE_PEDIDOS = "orders.exchange";
-    public static final String FILA_ESTOQUE = "stock.queue";
-    public static final String FILA_PAGAMENTO = "payment.queue";
-    public static final String FILA_NOTIFICACAO = "notification.queue";
+    public static final String EXCHANGE_PEDIDOS = "pedidos.exchange";
+    public static final String FILA_ESTOQUE = "estoque.queue";
+    public static final String FILA_PAGAMENTO = "pagamento.queue";
+    public static final String FILA_NOTIFICACAO = "notificacao.queue";
 
     @Bean
     FanoutExchange exchangePedidos() {
