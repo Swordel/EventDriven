@@ -3,11 +3,8 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
   "forwardPorts": [8080, 15672],
-  "postCreateCommand": "mvn clean package -DskipTests",
+  "postCreateCommand": "mvn -B clean package -DskipTests",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -20,7 +17,7 @@
         "java.configuration.runtimes": [
           {
             "name": "JavaSE-21",
-            "path": "/usr/local/sdkman/candidates/java/current",
+            "path": "/opt/java/openjdk",
             "default": true
           }
         ]

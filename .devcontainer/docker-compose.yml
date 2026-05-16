@@ -1,11 +1,17 @@
 services:
   app:
-    image: mcr.microsoft.com/devcontainers/java:1-21-bookworm
+    image: maven:3.9.9-eclipse-temurin-21
+    environment:
+      RABBITMQ_HOST: rabbitmq
     volumes:
       - ..:/workspace:cached
+    working_dir: /workspace
     command: sleep infinity
+    ports:
+      - "8080:8080"
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -15,3 +21,9 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s

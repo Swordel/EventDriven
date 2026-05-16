@@ -165,6 +165,8 @@ Container de desenvolvimento com Java 21 e Maven. É nele que você edita o cód
 
 Container com RabbitMQ e a interface web de administração.
 
+O container da aplicação aguarda o RabbitMQ responder ao healthcheck antes de ficar pronto para uso. Isso reduz falhas intermitentes de inicialização quando o Codespace ainda está subindo os serviços.
+
 ### Portas usadas
 
 - `8080`: aplicação Spring Boot;
@@ -205,11 +207,15 @@ Resposta esperada:
 
 ```json
 {
+  "idPedido": "uuid-gerado",
   "orderId": "uuid-gerado",
-  "status": "EVENT_PUBLISHED",
-  "message": "OrderCreatedEvent publicado com sucesso"
+  "status": "EVENTO_PUBLICADO",
+  "message": "EventoPedidoCriado publicado com sucesso",
+  "mensagem": "EventoPedidoCriado publicado com sucesso"
 }
 ```
+
+A aplicação também aceita `POST /pedidos` com os campos `idCliente`, `idProduto` e `quantidade`.
 
 ### Acessar RabbitMQ Management
 

@@ -1,9 +1,9 @@
 package br.edu.eventdriven.pedido;
 
-import br.edu.eventdriven.configuracao.ConfiguracaoRabbitMQ;
 import java.time.Instant;
 import java.util.Map;
 import java.util.UUID;
+
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.edu.eventdriven.configuracao.ConfiguracaoRabbitMQ;
+
 @RestController
-@RequestMapping("/pedidos")
+@RequestMapping({"/pedidos", "/orders"})
 public class ControladorPedido {
 
     private final RabbitTemplate templateRabbit;
@@ -37,7 +39,9 @@ public class ControladorPedido {
         // TODO didático: publicar outros tipos de evento quando o fluxo crescer.
         return ResponseEntity.accepted().body(Map.of(
                 "idPedido", idPedido,
+                "orderId", idPedido,
                 "status", "EVENTO_PUBLICADO",
+                "message", "EventoPedidoCriado publicado com sucesso",
                 "mensagem", "EventoPedidoCriado publicado com sucesso"
         ));
     }

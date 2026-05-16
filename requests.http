@@ -7,3 +7,13 @@ Content-Type: application/json
   "productId": "P001",
   "quantity": 2
 }
+
+### Criar pedido usando nomes em português
+POST http://localhost:8080/pedidos
+Content-Type: application/json
+
+{
+  "idCliente": "C001",
+  "idProduto": "P001",
+  "quantidade": 2
+}
