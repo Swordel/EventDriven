@@ -5,5 +5,5 @@ Content-Type: application/json
 {
   "idCliente": "C001",
   "idProduto": "P001",
-  "quantidade": 2
+  "quantidade": 6
 }
